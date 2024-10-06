@@ -1,6 +1,6 @@
 export default function Home() {
 	return (
-		<main className='w-screen min-h-screen flex justify-center items-center'>
+		<main className=''>
 			<form className='text-neutral-800 py-6 space-y-6 relative overflow-hidden flex flex-col justify-around border border-neutral-500 rounded-lg bg-neutral-50 p-3 px-6'>
 				<div className='before:absolute before:w-32 before:h-20 before:right-2 space-y-1.5 before:bg-rose-300 before:-z-10 before:rounded-full before:blur-xl before:-top-12 z-10 after:absolute after:w-24 after:h-24 after:bg-purple-300 after:-z-10 after:rounded-full after:blur after:-top-12 after:-right-6'>
 					<span className='font-extrabold text-2xl text-violet-600'>
