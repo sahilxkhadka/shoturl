@@ -1,3 +1,4 @@
+import Button from "@/components/button";
 import { createNewShortUrl } from "@/lib/actions";
 
 export default function Home() {
@@ -50,12 +51,7 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-				<button
-					className='bg-violet-500 text-neutral-50 p-2 px-6 rounded-lg hover:bg-violet-400'
-					formAction={createNewShortUrl}
-				>
-					Trim URL
-				</button>
+				<Button innerText='Trim URL' formAction={createNewShortUrl} />
 			</form>
 		</main>
 	);

@@ -1,4 +1,6 @@
+import Button from "@/components/button";
 import CopyLink from "@/components/copy-link";
+import GithubIcon from "@/components/github-icon";
 import Link from "next/link";
 
 export default function ViewUrlInfoPage({
@@ -16,24 +18,27 @@ export default function ViewUrlInfoPage({
 					</span>
 					<div className='bg-violet-200 flex items-center gap-5 px-3.5 py-2 mx-8 w-full rounded-lg border-dashed border border-violet-600'>
 						<Link
-							href='https://url.vercel.app/xylp9z7'
-							className='text-neutral-900 text-sm font-medium hover:underline hover:text-violet-600'
+							href='https://sahilkhadka.com.np'
+							className='text-neutral-900 text-sm font-medium hover:underline hover:text-violet-600 line-clamp-2 text-ellipsis flex-1'
 						>
-							https://url.vercel.app/xylp9z7 Lorem ipsum dolor, sit amet
-							consectetur adipisicing elit. Eum, assumenda?
+							https://sahilkhadka.com.np
 						</Link>
-						<CopyLink url='Copy check' />
+						<CopyLink url='https://sahilkhadka.com.np' />
 					</div>
+					<Link href={"/"}>
+						<Button type='button' innerText='Trim New URL' />
+					</Link>
+
 					<Link
-						href={"/"}
-						className='bg-violet-500 text-neutral-50 p-2 px-6 mt-6 rounded-lg hover:bg-violet-600'
+						href={""}
+						className='bg-violet-300 p-2 rounded-sm border-white shadow-md shadow-violet-500'
 					>
-						Trim New URL
+						<GithubIcon />
 					</Link>
 				</div>
-				<button className='seal bg-rose-500 text-red-800 w-10 aspect-square rounded-full z-40 text-[10px] flex items-center justify-center font-semibold [clip-path:polygon(50%_0%,_80%_10%,_100%_35%,_100%_70%,_80%_90%,_50%_100%,_20%_90%,_0%_70%,_0%_35%,_20%_10%)] group-hover:opacity-0 transition-all duration-1000 group-hover:scale-0 group-hover:rotate-180 border-4 border-rose-900'>
+				<div className='seal bg-rose-500 text-red-800 w-16 aspect-square rounded-full z-40 text-[10px] flex items-center justify-center font-semibold [clip-path:polygon(50%_0%,_80%_10%,_100%_35%,_100%_70%,_80%_90%,_50%_100%,_20%_90%,_0%_70%,_0%_35%,_20%_10%)] group-hover:opacity-0 transition-all duration-1000 group-hover:scale-0 group-hover:rotate-180 border-4 border-rose-900'>
 					SK
-				</button>
+				</div>
 				<div className='tp transition-all duration-1000 group-hover:duration-100 bg-violet-400 absolute group-hover:[clip-path:polygon(50%_0%,_100%_0,_0_0)] w-full h-full [clip-path:polygon(50%_50%,_100%_0,_0_0)]'></div>
 				<div className='lft transition-all duration-700 absolute w-full h-full bg-violet-600 [clip-path:polygon(50%_50%,_0_0,_0_100%)]'></div>
 				<div className='rgt transition-all duration-700 absolute w-full h-full bg-violet-700 [clip-path:polygon(50%_50%,_100%_0,_100%_100%)]'></div>
