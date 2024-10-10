@@ -26,3 +26,16 @@ body {
 		text-wrap: balance;
 	}
 }
+
+@keyframes infinite-scroll {
+	0% {
+		transform: translateY(0%);
+	}
+	100% {
+		transform: translateY(-250%);
+	}
+}
+
+.animate-rocket {
+	animation: infinite-scroll 2s linear infinite;
+}

@@ -1,4 +1,5 @@
 import Button from "@/components/button";
+import CustomIdInput from "@/components/custom-id-input";
 import { createNewShortUrl } from "@/lib/actions";
 
 export default function Home() {
@@ -25,7 +26,7 @@ export default function Home() {
 							type='url'
 							className='relative bg-transparent ring-0 outline-none border  border-neutral-500 text-neutral-900 placeholder-violet-700 placeholder:font-semibold text-sm rounded-lg focus:ring-violet-500 placeholder-opacity-60 focus:border-violet-500 block w-full p-2.5 checked:bg-emerald-500'
 							placeholder='www.verylongurl.com'
-							name='originalUrl'
+							name='redirectUrl'
 							pattern='https://.*'
 							size={30}
 							required
@@ -43,12 +44,7 @@ export default function Home() {
 						<div className='text-sm px-2.5 text-white bg-gradient-to-r flex justify-center items-center from-violet-400 via-purple-500 to-violet-700 '>
 							<span>url.vercel.app/</span>
 						</div>
-						<input
-							type='text'
-							className='relative bg-transparent ring-0 outline-none border-none  border-neutral-500 text-neutral-900 placeholder-violet-700 placeholder:font-semibold text-sm rounded-lg focus:ring-violet-500 placeholder-opacity-60 focus:border-violet-500 block w-full p-2.5 checked:bg-emerald-500'
-							placeholder='xylp9z7'
-							name='customId'
-						/>
+						<CustomIdInput />
 					</div>
 				</div>
 				<Button innerText='Trim URL' formAction={createNewShortUrl} />
