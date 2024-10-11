@@ -1,14 +1,29 @@
 import Button from "@/components/button";
 import CopyLink from "@/components/copy-link";
 import GithubIcon from "@/components/icons/github-icon";
+import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
-export default function ViewUrlInfoPage({
+export default async function ViewUrlInfoPage({
 	params: { id },
 }: {
 	params: { id: string };
 }) {
-	console.log(id);
+	const pathname = `${process.env.SITE_URL}/${id}`;
+
+	const supabase = createClient();
+
+	const { data } = await supabase
+		.from("urls")
+		.select("*")
+		.eq("custom_id", id)
+		.single();
+
+	if (!data) {
+		notFound();
+	}
+
 	return (
 		<div className='card'>
 			<div className='relative bg-white w-96 sm:w-[432px] lg:w-[572px] group transition-all duration-700 aspect-video flex items-center justify-center'>
@@ -18,12 +33,13 @@ export default function ViewUrlInfoPage({
 					</span>
 					<div className='bg-violet-200 flex items-center gap-5 px-3.5 py-2 mx-8 w-full rounded-lg border-dashed border border-violet-600'>
 						<Link
-							href='https://sahilkhadka.com.np'
+							href={pathname}
 							className='text-neutral-900 text-sm font-medium hover:underline hover:text-violet-600 line-clamp-2 text-ellipsis flex-1'
+							target='_blank'
 						>
-							https://sahilkhadka.com.np
+							{pathname}
 						</Link>
-						<CopyLink url='https://sahilkhadka.com.np' />
+						<CopyLink url={pathname} />
 					</div>
 					<Link href={"/"}>
 						<Button type='button' innerText='Trim New URL' />
