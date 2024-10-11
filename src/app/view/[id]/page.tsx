@@ -2,8 +2,11 @@ import Button from "@/components/button";
 import CopyLink from "@/components/copy-link";
 import GithubIcon from "@/components/icons/github-icon";
 import { createClient } from "@/utils/supabase/client";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import logo from "@/assets/shoturl.png";
 
 export default async function ViewUrlInfoPage({
 	params: { id },
@@ -52,8 +55,8 @@ export default async function ViewUrlInfoPage({
 						<GithubIcon />
 					</Link>
 				</div>
-				<div className='seal bg-rose-500 text-red-800 w-16 aspect-square rounded-full z-40 text-[10px] flex items-center justify-center font-semibold [clip-path:polygon(50%_0%,_80%_10%,_100%_35%,_100%_70%,_80%_90%,_50%_100%,_20%_90%,_0%_70%,_0%_35%,_20%_10%)] group-hover:opacity-0 transition-all duration-1000 group-hover:scale-0 group-hover:rotate-180 border-4 border-rose-900'>
-					SK
+				<div className='seal bg-rose-500 text-red-800 w-24 aspect-square rounded-full z-40 text-[10px] flex items-center justify-center font-semibold [clip-path:polygon(50%_0%,_80%_10%,_100%_35%,_100%_70%,_80%_90%,_50%_100%,_20%_90%,_0%_70%,_0%_35%,_20%_10%)] group-hover:opacity-0 transition-all duration-1000 group-hover:scale-0 group-hover:rotate-180 border-4 border-violet-600'>
+					<Image src={logo} className='size-full rounded-full' alt='logo' />
 				</div>
 				<div className='tp transition-all duration-1000 group-hover:duration-100 bg-violet-400 absolute group-hover:[clip-path:polygon(50%_0%,_100%_0,_0_0)] w-full h-full [clip-path:polygon(50%_50%,_100%_0,_0_0)]'></div>
 				<div className='lft transition-all duration-700 absolute w-full h-full bg-violet-600 [clip-path:polygon(50%_50%,_0_0,_0_100%)]'></div>
