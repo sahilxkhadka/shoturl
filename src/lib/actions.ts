@@ -19,3 +19,20 @@ export async function createNewShortUrl(formData: FormData) {
 		console.error(error);
 	}
 }
+
+export async function checkIdAvailability(id: string) {
+	const supabase = createClient();
+
+	try {
+		const { data, error } = await supabase
+			.from("urls")
+			.select("custom_id")
+			.eq("custom_id", id);
+		console.log("🚀 ~ checkIdAvailability ~ data", data);
+		console.log("🚀 ~ checkIdAvailability ~ error", error);
+
+		return { data, error };
+	} catch (error) {
+		console.error(error);
+	}
+}

@@ -1,6 +1,6 @@
 import Button from "@/components/button";
 import CopyLink from "@/components/copy-link";
-import GithubIcon from "@/components/github-icon";
+import GithubIcon from "@/components/icons/github-icon";
 import Link from "next/link";
 
 export default function ViewUrlInfoPage({
