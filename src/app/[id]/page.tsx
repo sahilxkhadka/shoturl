@@ -1,12 +1,22 @@
-export default async function Home() {
-	// Artificial delay of 2 seconds
-	await new Promise((resolve) => setTimeout(resolve, 7000));
+import { createClient } from "@/utils/supabase/server";
+import { notFound, redirect } from "next/navigation";
 
-	const res = await fetch(
-		"https://hireme.caandd.com/api/blog-inner/e6d1fecb-6d6f-43c2-bb13-98b8848da54d"
-	);
-	console.log(res);
-	const data = await res.json();
-	console.log("🚀 ~ Home ~ data:", data);
-	return <h1>Hello</h1>;
+export default async function Home({
+	params: { id },
+}: {
+	params: { id: string };
+}) {
+	const supabase = createClient();
+
+	const { data } = await supabase
+		.from("urls")
+		.select("*")
+		.eq("custom_id", id)
+		.single();
+
+	if (data.redirect_url) {
+		redirect(data.redirect_url);
+	} else {
+		notFound();
+	}
 }

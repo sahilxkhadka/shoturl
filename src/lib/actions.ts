@@ -1,23 +1,30 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/client";
+import { redirect } from "next/navigation";
+import { TUrlDetailsPayload } from "./types";
 
 export async function createNewShortUrl(formData: FormData) {
 	const supabase = createClient();
-	console.log(formData);
 
-	try {
-		const { error, data } = await supabase.from("urls").insert([
-			{
-				custom_id: formData.get("customId"),
-				redirect_url: formData.get("redirectUrl"),
-			},
-		]);
-		console.log("🚀 ~ createNewShortUrl ~ error:", error);
-		console.log(data);
-	} catch (error) {
-		console.error(error);
+	const payload: TUrlDetailsPayload = {
+		redirect_url: formData.get("redirectUrl")?.toString() ?? "",
+	};
+
+	if (formData.get("customId")) {
+		payload.custom_id = formData.get("customId")?.toString() ?? "";
 	}
+
+	const { data, error } = await supabase
+		.from("urls")
+		.insert([payload])
+		.select();
+	console.log("🚀 ~ createNewShortUrl ~ data:", data);
+
+	if (error) {
+		throw new Error("Konichiwa");
+	}
+	redirect(`/view/${data[0].custom_id}`);
 }
 
 export async function checkIdAvailability(id: string) {
