@@ -14,7 +14,7 @@ export default async function Home({
 		.eq("custom_id", id)
 		.single();
 
-	if (data.redirect_url) {
+	if (data?.redirect_url) {
 		redirect(data.redirect_url);
 	} else {
 		notFound();

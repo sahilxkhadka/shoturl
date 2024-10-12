@@ -19,7 +19,6 @@ export async function createNewShortUrl(formData: FormData) {
 		.from("urls")
 		.insert([payload])
 		.select();
-	console.log("🚀 ~ createNewShortUrl ~ data:", data);
 
 	if (error) {
 		throw new Error("Konichiwa");
@@ -35,8 +34,6 @@ export async function checkIdAvailability(id: string) {
 			.from("urls")
 			.select("custom_id")
 			.eq("custom_id", id);
-		console.log("🚀 ~ checkIdAvailability ~ data", data);
-		console.log("🚀 ~ checkIdAvailability ~ error", error);
 
 		return { data, error };
 	} catch (error) {
