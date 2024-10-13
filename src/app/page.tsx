@@ -45,7 +45,7 @@ export default function Home() {
 					</label>
 					<div className="relative flex border border-neutral-500 rounded-lg w-96 overflow-hidden before:absolute before:w-12 before:h-12 before:content[''] before:right-0 before:bg-violet-500 before:rounded-full before:blur-lg after:absolute after:z-10 after:w-20 after:h-20 after:content[''] after:bg-rose-300 after:right-12 after:top-3 after:rounded-full after:blur-lg">
 						<div className='text-sm px-2.5 text-white bg-gradient-to-r flex justify-center items-center from-violet-400 via-purple-500 to-violet-700 '>
-							<span>url.vercel.app/</span>
+							<span>shotturl.vercel.app/</span>
 						</div>
 						<CustomIdInput />
 					</div>
