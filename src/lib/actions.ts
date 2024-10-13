@@ -11,19 +11,20 @@ export async function createNewShortUrl(formData: FormData) {
 		redirect_url: formData.get("redirectUrl")?.toString() ?? "",
 	};
 
-	if (formData.get("customId")) {
-		payload.custom_id = formData.get("customId")?.toString() ?? "";
+	if (formData.get("id")) {
+		payload.id = formData.get("id")?.toString() ?? "";
 	}
 
 	const { data, error } = await supabase
 		.from("urls")
 		.insert([payload])
 		.select();
+	console.log("🚀 ~ createNewShortUrl ~ data:", data);
 
 	if (error) {
-		throw new Error("Konichiwa");
+		redirect("/error");
 	}
-	redirect(`/view/${data[0].custom_id}`);
+	redirect(`/view/${data[0].id}`);
 }
 
 export async function checkIdAvailability(id: string) {
@@ -32,8 +33,8 @@ export async function checkIdAvailability(id: string) {
 	try {
 		const { data, error } = await supabase
 			.from("urls")
-			.select("custom_id")
-			.eq("custom_id", id);
+			.select("id")
+			.eq("id", id);
 
 		return { data, error };
 	} catch (error) {

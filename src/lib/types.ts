@@ -1,4 +1,4 @@
 export type TUrlDetailsPayload = {
-	custom_id?: string;
+	id?: string;
 	redirect_url: string;
 };

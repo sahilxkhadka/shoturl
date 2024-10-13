@@ -55,7 +55,7 @@ export default function CustomIdInput() {
 					type='text'
 					className='outline-none block border-none'
 					placeholder='xylp9z7'
-					name='customId'
+					name='id'
 					value={customId}
 					onChange={(e) => {
 						setCustomId(e.target.value);

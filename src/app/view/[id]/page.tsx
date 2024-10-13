@@ -20,7 +20,7 @@ export default async function ViewUrlInfoPage({
 	const { data } = await supabase
 		.from("urls")
 		.select("*")
-		.eq("custom_id", id)
+		.eq("id", id)
 		.single();
 
 	if (!data) {

@@ -11,7 +11,7 @@ export default async function Home({
 	const { data } = await supabase
 		.from("urls")
 		.select("*")
-		.eq("custom_id", id)
+		.eq("id", id)
 		.single();
 
 	if (data?.redirect_url) {
