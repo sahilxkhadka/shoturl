@@ -1,10 +1,9 @@
 export default function Spinner() {
 	return (
 		<svg
-			fill='#000000'
 			viewBox='0 0 20 20'
 			xmlns='http://www.w3.org/2000/svg'
-			className='animate-spin size-5'
+			className='animate-spin size-5 fill-violet-600'
 		>
 			<g id='SVGRepo_bgCarrier' stroke-width='0'></g>
 			<g

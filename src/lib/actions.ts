@@ -4,7 +4,10 @@ import { createClient } from "@/utils/supabase/client";
 import { redirect } from "next/navigation";
 import { TUrlDetailsPayload } from "./types";
 
-export async function createNewShortUrl(formData: FormData) {
+export async function createNewShortUrl(
+	prevState: string | undefined,
+	formData: FormData
+) {
 	const supabase = createClient();
 
 	const payload: TUrlDetailsPayload = {
@@ -19,10 +22,9 @@ export async function createNewShortUrl(formData: FormData) {
 		.from("urls")
 		.insert([payload])
 		.select();
-	console.log("🚀 ~ createNewShortUrl ~ data:", data);
-
+	console.log(error);
 	if (error) {
-		redirect("/error");
+		return error.details;
 	}
 	redirect(`/view/${data[0].id}`);
 }

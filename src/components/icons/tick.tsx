@@ -3,10 +3,9 @@ import React from "react";
 export default function Tick() {
 	return (
 		<svg
-			fill='#000000'
 			viewBox='-3.5 0 19 19'
 			xmlns='http://www.w3.org/2000/svg'
-			className='cf-icon-svg size-5'
+			className='cf-icon-svg size-5 fill-green-600'
 		>
 			<g id='SVGRepo_bgCarrier' stroke-width='0'></g>
 			<g

@@ -1,16 +1,23 @@
 "use client";
 
 import { checkIdAvailability } from "@/lib/actions";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import Spinner from "./icons/spinner";
 import Cross from "./icons/cross";
 import Tick from "./icons/tick";
 
-export default function CustomIdInput() {
+type Props = {
+	errorMessage: string;
+	setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export default function CustomIdInput({
+	errorMessage,
+	setErrorMessage,
+}: Props) {
 	const [customId, setCustomId] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
-	const [errorMsg, setErrorMsg] = useState("");
 
 	const [deabouncedCustomId] = useDebounce(customId, 500);
 
@@ -22,9 +29,9 @@ export default function CustomIdInput() {
 		const data = res?.data ?? [];
 
 		if (data.length > 0) {
-			setErrorMsg("Custom ID already exists");
+			setErrorMessage("ID already exists");
 		} else {
-			setErrorMsg(res?.error?.message ?? "");
+			setErrorMessage(res?.error?.message ?? "");
 		}
 	};
 
@@ -33,8 +40,12 @@ export default function CustomIdInput() {
 		if (isLoading) {
 			return <Spinner />;
 		}
-		if (errorMsg) {
-			return <Cross />;
+		if (errorMessage) {
+			return (
+				<span title={errorMessage}>
+					<Cross />
+				</span>
+			);
 		}
 		if (deabouncedCustomId !== "") {
 			return <Tick />;
