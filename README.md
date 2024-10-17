@@ -28,20 +28,20 @@ To get a local copy up and running, follow these steps:
 2. Install dependencies using pnpm or npm:
 
 ```bash
-  pnpm install
+   pnpm install
 ```
 
 3. Create a .env file in the root directory and add your Supabase credentials:
 
 ```bash
-    NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 ```
 
 4. Start the development server:
 
 ```bash
-pnpm run dev
+   pnpm run dev
 ```
 
 ## Usage
